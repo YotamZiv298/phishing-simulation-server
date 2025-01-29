@@ -1,9 +1,10 @@
+import { AuthModule } from '@auth/auth.module';
 import appConfig from '@config/app.config';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { AppController } from '@src/app.controller';
-import { AppService } from '@src/app.service';
-import { BetterLoggerModule } from 'nest-elastic-logger';
+import { MongooseModule } from '@nestjs/mongoose';
+import { UsersModule } from '@users/users.module';
+import { PhishingModule } from './phishing/phishing.module';
 
 @Module({
   imports: [
@@ -11,12 +12,10 @@ import { BetterLoggerModule } from 'nest-elastic-logger';
       load: [appConfig],
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
-    BetterLoggerModule.forRoot({
-      serviceName: process.env.npm_package_name!,
-      serviceVersion: process.env.npm_package_version,
-    }),
+    MongooseModule.forRoot('mongodb://127.0.0.1/phishing-simulation'),
+    AuthModule,
+    UsersModule,
+    PhishingModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
