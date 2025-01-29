@@ -52,6 +52,9 @@
       "quoteStyle": "single",
       "attributePosition": "auto",
       "bracketSpacing": true
+    },
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
     }
   },
   "overrides": [

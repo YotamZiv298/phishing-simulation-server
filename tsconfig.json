@@ -13,7 +13,10 @@
     "incremental": true,
     "paths": {
       "@src/*": ["src/*"],
-      "@config/*": ["src/config/*"]
+      "@config/*": ["src/config/*"],
+      "@auth/*": ["src/auth/*"],
+      "@guards/*": ["src/guards/*"],
+      "@users/*": ["src/users/*"]
     },
     "skipLibCheck": true,
     "strictNullChecks": true,
