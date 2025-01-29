@@ -53,13 +53,4 @@ export class PhishingService {
   async getAllAttempts() {
     return await this.phishingModel.find().exec();
   }
-
-  async sendPhishingEmail(email: string) {
-    const response = await this.httpService.axiosRef.post(
-      'http://localhost:3000/phishing/send',
-      { email },
-    );
-
-    return await this.phishingModel.create({ email, status: 'pending' });
-  }
 }
