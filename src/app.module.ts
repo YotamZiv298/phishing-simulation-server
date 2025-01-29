@@ -12,6 +12,7 @@ import { PhishingModule } from './phishing/phishing.module';
       load: [appConfig],
       envFilePath: `.env.${process.env.NODE_ENV}`,
     }),
+    //TODO: move string to env
     MongooseModule.forRoot('mongodb://127.0.0.1/phishing-simulation'),
     AuthModule,
     UsersModule,

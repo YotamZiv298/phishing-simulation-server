@@ -15,6 +15,7 @@ import { UsersModule } from '@users/users.module';
     JwtModule.register({
       secret: jwtConstants.secret,
       signOptions: {
+        // TODO: expire sooner to avoid token leak and implement refresh token
         expiresIn: '7d',
       },
     }),

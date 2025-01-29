@@ -13,6 +13,7 @@ export class AuthService {
   ) {}
 
   async register(user: CreateUserDto): Promise<Partial<User>> {
+    // TODO: move magic number to constant
     const hashedPassword = await bcrypt.hash(user.password, 10);
 
     let createdUser: User;
